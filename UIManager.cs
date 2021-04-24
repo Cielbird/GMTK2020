@@ -62,40 +62,40 @@ public class UIManager : MonoBehaviour
         }
     }
     
-    public void playerDeath()
+    public void PlayerDeath()
     {
         gameUIPanel.SetActive(false);
         deathMenu.SetActive(true);
         finalScore.text = "WAVE: " + arena.currentLevel;
     }
 
-    public void replay()
+    public void Replay()
     {
         SceneManager.LoadScene("MainScene");
     }
 
-    public void quit()
+    public void Quit()
     {
         Application.Quit();
     }
 
-    public void updateLevel(int level)
+    public void UpdateLevel(int level)
     {
         levelText.text = level.ToString();
         levelText.GetComponent<Animation>().Play();
     }
 
-    public void animateMalfunctioningControls(int i)
+    public void AnimateMalfunctioningControls(int i)
     {
         uiAnims[i].Play();
     }
 
-    public void timedContinueButton()
+    public void TimedContinueButton()
     {
-        StartCoroutine(contButton());
+        StartCoroutine(ContButton());
     }
 
-    IEnumerator contButton()
+    IEnumerator ContButton()
     {
         yield return new WaitForSeconds(5);
         continueButton.interactable = true;

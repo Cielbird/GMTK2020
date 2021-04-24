@@ -51,17 +51,17 @@ public class Enemy : MonoBehaviour, IDamageable
 
             if (hp <= 0)
             {
-                initiateDeath();
+                InitiateDeath();
             }
         }
     }
 
-    protected virtual void initiateDeath()
+    protected virtual void InitiateDeath()
     {
-        StartCoroutine(die());
+        StartCoroutine(Die());
     }
 
-    protected IEnumerator die()
+    protected IEnumerator Die()
     {
         hp = 0f;
         agent.enabled = false;

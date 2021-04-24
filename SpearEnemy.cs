@@ -31,7 +31,7 @@ public class SpearEnemy : Enemy
     {
         base.Start();
 
-        StartCoroutine(repeatStab());
+        StartCoroutine(RepeatStab());
     }
 
     protected override void Update()
@@ -55,27 +55,27 @@ public class SpearEnemy : Enemy
         }
     }
     
-    protected override void initiateDeath()
+    protected override void InitiateDeath()
     {
-        base.initiateDeath();
+        base.InitiateDeath();
 
-        StopCoroutine(repeatStab());
+        StopCoroutine(RepeatStab());
     }
 
-    IEnumerator repeatStab()
+    IEnumerator RepeatStab()
     {
         while (agent.enabled)
         {
             if (Vector3.Distance(transform.position, player.transform.position) < 5f)
             {
-                stab(leftSpear, leftSpearAnim);
-                stab(rightSpear, rightSpearAnim);
+                Stab(leftSpear, leftSpearAnim);
+                Stab(rightSpear, rightSpearAnim);
             }
             yield return new WaitForSeconds(attackPauseLength);
         }
     }
 
-    void stab(Transform spear, Animation spearAnim)
+    void Stab(Transform spear, Animation spearAnim)
     {
         spearAnim.Play();
         RaycastHit hit;

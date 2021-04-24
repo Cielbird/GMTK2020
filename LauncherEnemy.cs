@@ -17,7 +17,7 @@ public class LauncherEnemy : Enemy
     {
         base.Start();
 
-        StartCoroutine(shoot());
+        StartCoroutine(Shoot());
     }
     
     protected override void Update()
@@ -39,14 +39,14 @@ public class LauncherEnemy : Enemy
         }
     }
 
-    protected override void initiateDeath()
+    protected override void InitiateDeath()
     {
-        base.initiateDeath();
+        base.InitiateDeath();
 
-        StopCoroutine(shoot());
+        StopCoroutine(Shoot());
     }
 
-    IEnumerator shoot()
+    IEnumerator Shoot()
     {
         while (agent.enabled)
         {

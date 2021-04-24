@@ -18,7 +18,7 @@ public class ArenaManager : MonoBehaviour
     {
         while (true)
         {
-            ui.updateLevel(currentLevel + 1);
+            ui.UpdateLevel(currentLevel + 1);
             yield return new WaitForSeconds(10);
 
             levelEnemies = new int[currentLevel / 5 + 1];
@@ -48,7 +48,7 @@ public class ArenaManager : MonoBehaviour
 
                 Instantiate(enemyPrefabs[enemyIndex], spawnRayHit.point, Quaternion.identity);
             }
-            while (!isEveryoneDead())
+            while (!IsEveryoneDead())
             {
                 yield return new WaitForSeconds(1);
             }
@@ -56,13 +56,13 @@ public class ArenaManager : MonoBehaviour
         }
     }
     
-    bool isEveryoneDead()
+    bool IsEveryoneDead()
     {
         int enemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
         return enemyCount == 0;
     }
 
-    public void endGame()
+    public void EndGame()
     {
         StopAllCoroutines();
         foreach(GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy"))

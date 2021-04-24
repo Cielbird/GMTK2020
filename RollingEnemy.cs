@@ -20,17 +20,17 @@ public class RollingEnemy : Enemy
 
         if (Vector3.Distance(transform.position, player.transform.position) < 1f && agent.enabled)
         {
-            initiateDeath();
+            InitiateDeath();
         }
     }
 
-    protected override void initiateDeath()
+    protected override void InitiateDeath()
     {
-        base.initiateDeath();
-        StartCoroutine(explode());
+        base.InitiateDeath();
+        StartCoroutine(Explode());
     }
 
-    IEnumerator explode()
+    IEnumerator Explode()
     {
         yield return new WaitForSeconds(timeToDie+0.1f);
         Instantiate(explosionPrefab, transform.position, transform.rotation);

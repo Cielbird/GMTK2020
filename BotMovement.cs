@@ -53,11 +53,11 @@ public class BotMovement : MonoBehaviour
 
         if (Input.GetMouseButtonDown(1) && !player.isDead())
         {
-            meleeAttack(10);
+            MeleeAttack(10);
         }
         if (Input.GetMouseButtonDown(0) && !player.isDead())
         {
-            rangedAttack();
+            RangedAttack();
         }
 
         Vector3 walkVector = player.walkDirection;
@@ -67,7 +67,7 @@ public class BotMovement : MonoBehaviour
         animator.SetFloat("Strafe", smoothedMovement.x);
     }
     
-    public void meleeAttack(float amount)
+    public void MeleeAttack(float amount)
     {
         if (player.componentHealths[5] > 0)
         {
@@ -101,7 +101,7 @@ public class BotMovement : MonoBehaviour
         }
     }
 
-    public void rangedAttack()
+    public void RangedAttack()
     {
         if (player.componentHealths[4] > 0)
         {

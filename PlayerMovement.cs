@@ -177,7 +177,7 @@ public class PlayerMovement : MonoBehaviour, IDamageable
         source.pitch = malfunctionPitch;
         source.volume = malfunctionVolume;
         source.PlayOneShot(malfunction);
-        uiManager.animateMalfunctioningControls(i);
+        uiManager.AnimateMalfunctioningControls(i);
     }
 
     public void TakeDamage(float amount)
@@ -205,13 +205,13 @@ public class PlayerMovement : MonoBehaviour, IDamageable
         
         if (isDead())
         {
-            StartCoroutine(death());
+            StartCoroutine(Death());
         }
     }
 
-    IEnumerator death()
+    IEnumerator Death()
     {
-        arenaManager.endGame();
+        arenaManager.EndGame();
         cam.aimLocked = true;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -228,7 +228,7 @@ public class PlayerMovement : MonoBehaviour, IDamageable
         }
 
         yield return new WaitForSeconds(3);
-        uiManager.playerDeath();
+        uiManager.PlayerDeath();
     }
 
     public bool isDead()
